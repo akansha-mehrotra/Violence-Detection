@@ -28,8 +28,8 @@ def extract_features_from_video(video_path):
     return features
 
 # Define paths to directories containing videos
-train_directory = '/Users/akansha_0501/Desktop/Violence Detection/training'
-test_directory = '/Users/akansha_0501/Desktop/Violence Detection/testing'
+train_directory = ''
+test_directory = ''
 
 # Function to extract features and labels for individual video files
 def extract_data_from_directory(directory):
@@ -73,7 +73,7 @@ test_features_flat = test_features.reshape(test_features.shape[0], -1)
 
 
 
-
+#Redundant
 # Load data and extract features
 train_features, train_labels = extract_data_from_directory(train_directory)
 test_features, test_labels = extract_data_from_directory(test_directory)
@@ -98,9 +98,6 @@ def create_dense_neural_network(train_features_flat, train_labels, test_features
 
     # Train the model
     dense_model.fit(train_features_flat, train_labels, epochs=10, batch_size=32, validation_data=(test_features_flat, test_labels))
-    # Save the models using pickle
-    with open('dense_model.pkl', 'wb') as dense_file:
-        pickle.dump(dense_model, dense_file)
     return dense_model
 
 
@@ -118,8 +115,6 @@ def create_lstm_model(train_features_lstm, train_labels, test_features_lstm, tes
 
     # Train the model
     lstm_model.fit(train_features_lstm, train_labels, epochs=10, batch_size=32, validation_data=(test_features_lstm, test_labels))
-    with open('lstm_model.pkl', 'wb') as lstm_file:
-        pickle.dump(lstm_model, lstm_file)
     return lstm_model
 
 # Create and train Dense Neural Network model
