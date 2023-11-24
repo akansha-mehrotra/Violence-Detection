@@ -169,7 +169,7 @@ with open('lstm_model.pkl', 'rb') as lstm_file:
     loaded_lstm_model = pickle.load(lstm_file)
 
 # Example usage for predicting violence in a random clip using loaded models
-random_clip_path = '/Users/akansha_0501/Desktop/Violence Detection/testing'
+random_clip_path = ''
 prediction_result_dnn, pvalue_dnn = predict_violence_in_random_clip(random_clip_path, loaded_dense_model)
 print("Prediction for the random clip (Dense NN):", prediction_result_dnn)
 
